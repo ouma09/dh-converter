@@ -1,0 +1,450 @@
+/* Moroccan-inspired color palette */
+:root {
+    --terracotta: #c75b39;
+    --terracotta-dark: #a84832;
+    --ochre: #d4a574;
+    --sand: #f5e6d3;
+    --sand-light: #faf6f1;
+    --teal: #1d7874;
+    --teal-dark: #145652;
+    --midnight: #1a1a2e;
+    --midnight-light: #2d2d44;
+    --gold: #d4af37;
+    --cream: #fffef9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, var(--sand) 0%, var(--sand-light) 50%, #e8ddd0 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Geometric Moroccan pattern background */
+.background-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.04;
+    background-image: 
+        linear-gradient(30deg, var(--terracotta) 12%, transparent 12.5%, transparent 87%, var(--terracotta) 87.5%, var(--terracotta)),
+        linear-gradient(150deg, var(--terracotta) 12%, transparent 12.5%, transparent 87%, var(--terracotta) 87.5%, var(--terracotta)),
+        linear-gradient(30deg, var(--terracotta) 12%, transparent 12.5%, transparent 87%, var(--terracotta) 87.5%, var(--terracotta)),
+        linear-gradient(150deg, var(--terracotta) 12%, transparent 12.5%, transparent 87%, var(--terracotta) 87.5%, var(--terracotta)),
+        linear-gradient(60deg, var(--teal) 25%, transparent 25.5%, transparent 75%, var(--teal) 75%, var(--teal)),
+        linear-gradient(60deg, var(--teal) 25%, transparent 25.5%, transparent 75%, var(--teal) 75%, var(--teal));
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    z-index: 1;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.logo-icon {
+    font-size: 28px;
+    color: var(--terracotta);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--midnight);
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--midnight-light);
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Converter Card */
+.converter-card {
+    background: var(--cream);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 20px 40px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+/* Input Section */
+.input-section {
+    margin-bottom: 24px;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--midnight-light);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.input-group {
+    display: flex;
+    gap: 12px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 16px 20px;
+    font-size: 1.25rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    border: 2px solid var(--ochre);
+    border-radius: 12px;
+    background: var(--sand-light);
+    color: var(--midnight);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 4px rgba(199, 91, 57, 0.15);
+    background: white;
+}
+
+.input-group input::placeholder {
+    color: var(--ochre);
+    opacity: 0.7;
+}
+
+.input-group select {
+    padding: 16px 16px;
+    font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    border: 2px solid var(--ochre);
+    border-radius: 12px;
+    background: var(--sand-light);
+    color: var(--midnight);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.input-group select:focus {
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 4px rgba(199, 91, 57, 0.15);
+}
+
+.input-group select:hover {
+    background: white;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--ochre), transparent);
+}
+
+.divider-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
+    color: white;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 16px;
+    box-shadow: 0 4px 12px rgba(199, 91, 57, 0.35);
+}
+
+/* Results Section */
+.results-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.result-card {
+    padding: 24px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+}
+
+.result-dh {
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    color: white;
+}
+
+.result-ryal {
+    background: linear-gradient(135deg, var(--midnight), var(--midnight-light));
+    color: white;
+}
+
+.result-frank {
+    background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
+    color: white;
+}
+
+.result-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.result-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.result-value span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.currency-code {
+    font-size: 1.25rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.result-flag {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    opacity: 0.3;
+}
+
+.exchange-info {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Rate Info */
+.rate-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(212, 165, 116, 0.3);
+}
+
+.rate-info span {
+    font-size: 0.875rem;
+    color: var(--midnight-light);
+    opacity: 0.7;
+}
+
+.refresh-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sand);
+    border: 1px solid var(--ochre);
+    border-radius: 8px;
+    font-size: 1.25rem;
+    color: var(--terracotta);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+    background: var(--terracotta);
+    color: white;
+    border-color: var(--terracotta);
+    transform: rotate(180deg);
+}
+
+.refresh-btn:active {
+    transform: rotate(360deg) scale(0.95);
+}
+
+.refresh-btn.loading {
+    animation: spin 1s linear infinite;
+    pointer-events: none;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 24px;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.footer p {
+    font-size: 0.8rem;
+    color: var(--midnight-light);
+    opacity: 0.6;
+}
+
+.footer a {
+    color: var(--terracotta);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--terracotta-dark);
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Loading state for results */
+.result-value span:first-child.loading {
+    opacity: 0.5;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .converter-card {
+        padding: 24px 20px;
+    }
+
+    .logo h1 {
+        font-size: 2rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group select {
+        min-width: 100%;
+    }
+
+    .result-value span:first-child {
+        font-size: 2rem;
+    }
+
+    .result-flag,
+    .exchange-info {
+        display: none;
+    }
+}
+
+/* Number input spinner removal */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
