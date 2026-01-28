@@ -3,7 +3,8 @@
 // 1 DH = 20 Ryal
 // 1 DH = 100 Frank (10 DH = 1000 Frank)
 
-const API_BASE = 'https://open.er-api.com/v6/latest';
+// API key loaded from config.js (gitignored for security)
+const API_BASE = `https://v6.exchangerate-api.com/v6/${CONFIG.API_KEY}/latest`;
 const DH_TO_RYAL = 20;
 const DH_TO_FRANK = 100;
 

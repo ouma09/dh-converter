@@ -1,0 +1,10 @@
+# API Config (contains sensitive keys)
+config.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
